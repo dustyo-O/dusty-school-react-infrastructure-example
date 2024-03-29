@@ -1,5 +1,5 @@
 import React, { ChangeEvent, FC, useState } from 'react';
-import { Button, Input, message as messageAntd } from 'antd';
+import { Button, Input } from 'antd';
 
 import { cnMessageSend } from './MessageSend.classname';
 import { User } from '../../types/user';

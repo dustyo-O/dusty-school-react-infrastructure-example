@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import type { ChatMessage as ApiChatMessage } from '../../types/api';
 
 import { cnChat } from './Chat.classname';

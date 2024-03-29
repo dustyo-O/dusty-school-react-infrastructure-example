@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, useEffect, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { Select, Spin, message } from 'antd';
 
 import { cnChatSelect } from './ChatSelect.classname';
@@ -58,8 +58,6 @@ const ChatSelect: FC<ChatSelectProps> = ({ onSelect, user }) => {
   if (loading) {
     return <Spin />;
   }
-
-  console.log(chats);
 
   return (
     <div className={cnChatSelect()}>

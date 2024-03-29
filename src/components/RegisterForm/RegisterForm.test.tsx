@@ -2,7 +2,6 @@ import { act, fireEvent, render, screen } from '@testing-library/react';
 
 import { RegisterForm } from './RegisterForm';
 import { cnRegisterForm } from './RegisterForm.classname';
-import { keyboard } from '@testing-library/user-event/dist/keyboard';
 
 const successHandler = jest.fn();
 const startHandler = jest.fn();

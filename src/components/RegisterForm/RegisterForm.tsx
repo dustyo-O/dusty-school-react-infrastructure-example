@@ -1,4 +1,4 @@
-import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
+import React, { ChangeEvent, FC, useState } from 'react';
 import { Button, Input, Spin, message } from 'antd';
 import Title from 'antd/lib/typography/Title';
 
@@ -21,7 +21,6 @@ const RegisterForm: FC<RegisterFormProps> = ({ onStartLoading, onFinishLoading, 
 
 
   const handleSubmit = () => {
-    console.log('HANDLESUBMIT');
     setLoading(true);
     onStartLoading?.();
 
