@@ -3,6 +3,7 @@ import { Button, Input, Spin, message } from 'antd';
 import Title from 'antd/es/typography/Title';
 
 import { cnLoginForm } from './LoginForm.classname';
+import { API_ORIGIN } from '../../settings/api';
 
 import './LoginForm.css';
 import { LoginResponse, isLoginSuccessResponse } from '../../types/api';
@@ -23,7 +24,7 @@ const LoginForm: FC<LoginFormProps> = ({ onStartLoading, onFinishLoading, onSucc
     setLoading(true);
     onStartLoading?.();
 
-    fetch('http://localhost:3000/login', {
+    fetch(`${API_ORIGIN}/login`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',

@@ -4,6 +4,7 @@ import { Select, Spin, message } from 'antd';
 import { cnChatSelect } from './ChatSelect.classname';
 import { User } from '../../types/user';
 import { ChatData, ChatsResponse, isChatsSuccessResponse } from '../../types/api';
+import { API_ORIGIN } from '../../settings/api';
 
 import './ChatSelect.css';
 
@@ -26,7 +27,7 @@ const ChatSelect: FC<ChatSelectProps> = ({ onSelect, user }) => {
 
     setLoading(true);
 
-    fetch('http://localhost:3000/chats', {
+    fetch(`${API_ORIGIN}/chats`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
