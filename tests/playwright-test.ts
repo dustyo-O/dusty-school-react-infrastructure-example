@@ -15,8 +15,6 @@ function getOutputPath(testInfo: TestInfo, shouldCompress: boolean) {
 
   const snapshotPath = path.join(path.dirname(testInfo.file), 'dumps', fileSegment);
 
-  console.log(snapshotPath);
-
   return snapshotPath;
 }
 

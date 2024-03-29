@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { Button, Spin } from 'antd';
+import { Spin } from 'antd';
 
 import { cnPageChat } from './PageChat.classname';
 import { User } from '../../types/user';
@@ -20,8 +20,6 @@ const PageChat: FC<PageChatProps> = ({ user, chat, onExitChat }) => {
 
   useEffect(() => {
     const socket = new WebSocket('ws://localhost:3000/');
-
-    console.log(socket);
 
     setWebSocket(socket);
   }, []);
