@@ -4,6 +4,7 @@ import Title from 'antd/lib/typography/Title';
 
 import { RegisterResponse, isRegisterExistsResponse, isRegisterSuccessResponse } from '../../types/api';
 import { cnRegisterForm } from './RegisterForm.classname';
+import { API_ORIGIN } from '../../settings/api';
 
 import './RegisterForm.css';
 
@@ -24,7 +25,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ onStartLoading, onFinishLoading, 
     setLoading(true);
     onStartLoading?.();
 
-    fetch('http://localhost:3000/register', {
+    fetch(`${API_ORIGIN}/register`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',

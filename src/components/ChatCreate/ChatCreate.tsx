@@ -4,6 +4,7 @@ import { Button, Input, message } from 'antd';
 import { cnChatCreate } from './ChatCreate.classname';
 import { User } from '../../types/user';
 import { NewChatResponse, isNewChatSuccessResponse } from '../../types/api';
+import { API_ORIGIN } from '../../settings/api';
 
 import './ChatCreate.css';
 
@@ -20,7 +21,7 @@ const ChatCreate: FC<ChatCreateProps> = ({ onCreate, user }) => {
   const handleCreate = () => {
     setLoading(true);
 
-    fetch('http://localhost:3000/newchat', {
+    fetch(`${API_ORIGIN}/newchat`, {
       method: 'POST',
       headers: {
         'Content-type': 'application/json',
