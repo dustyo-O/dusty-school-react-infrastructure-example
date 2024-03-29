@@ -63,13 +63,14 @@ const LoginForm: FC<LoginFormProps> = ({ onStartLoading, onFinishLoading, onSucc
       {loading ? <Spin /> : <>
         <div>
           <Title level={5}>Логин</Title>
-          <Input value={login} onChange={handleLoginChange} />
+          <Input className={cnLoginForm('Login')} value={login} onChange={handleLoginChange} />
         </div>
         <div>
           <Title level={5}>Пароль</Title>
-          <Input value={password} onChange={handlePasswordChange} type="password" />
+          <Input className={cnLoginForm('Password')} value={password} onChange={handlePasswordChange} type="password" />
         </div>
         <Button
+          className={cnLoginForm('Button')}
           type="primary"
           disabled={login.length === 0 || password.length === 0}
           onClick={handleSubmit}

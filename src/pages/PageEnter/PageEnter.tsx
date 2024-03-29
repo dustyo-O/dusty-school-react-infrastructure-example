@@ -11,13 +11,15 @@ type PageEnterProps = {
   onEnter: (login: string, token: string) => void;
 }
 
+type PageEnterState = 'login' | 'register';
+
 const PageEnter: FC<PageEnterProps> = ({ onEnter }) => {
-  const [wantToRegister, setWantToRegister] = useState(false);
+  const [pageState, setPageState] = useState<PageEnterState>('login');
   const [loading, setLoading] = useState(false);
   const [messageApi, contextHolder] = message.useMessage();
 
   const handleToggleLoginRegister = () => {
-    setWantToRegister(prev => !prev);
+    setPageState(prev => prev === 'login' ? 'register' : 'login');
   };
 
   const handleStart = () => {
@@ -29,7 +31,7 @@ const PageEnter: FC<PageEnterProps> = ({ onEnter }) => {
   };
 
   const handleRegisterFinish = () => {
-    setWantToRegister(false);
+    setPageState('login');
     messageApi.success('Успешно зарегистрировались, теперь можно войти');
   };
 
@@ -37,13 +39,13 @@ const PageEnter: FC<PageEnterProps> = ({ onEnter }) => {
     onEnter(login, token);
   };
 
-  const buttonToggleText = wantToRegister ? 'Войти' : 'Зарегистрироваться';
+  const buttonToggleText = pageState === 'register' ? 'Войти' : 'Зарегистрироваться';
 
   return (
     <div className={cnPageEnter()}>
       {contextHolder}
       {
-        wantToRegister ?
+        pageState === 'register' ?
           <RegisterForm
             onStartLoading={handleStart}
             onFinishLoading={handleFinish}

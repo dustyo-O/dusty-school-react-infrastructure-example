@@ -23,11 +23,11 @@ export function isRegisterExistsResponse(response: RegisterResponse): response i
 type UserData = {
     login: string;
     password: string;
-}
+};
 
 type LoginErrorResponse = {
     error: string;
-}
+};
 
 type LoginSuccessResponse = {
     token: string;
@@ -38,4 +38,44 @@ export type LoginResponse = LoginSuccessResponse | LoginErrorResponse;
 
 export function isLoginSuccessResponse(response: LoginResponse): response is LoginSuccessResponse {
     return !Object.prototype.hasOwnProperty.call(response, 'error');
+};
+
+type ChatsErrorResponse = {
+    error: string;
+};
+
+export type ChatData = {
+    _id: string;
+    name: string;
+};
+
+type ChatsSuccessResponse = ChatData[];
+
+export type ChatsResponse = ChatsSuccessResponse | ChatsErrorResponse;
+
+export function isChatsSuccessResponse(response: ChatsResponse): response is ChatsSuccessResponse {
+    return !Object.prototype.hasOwnProperty.call(response, 'error');
+};
+
+type NewChatErrorResponse = {
+    error: string;
+};
+
+type NewChatSuccessResponse = {
+    insertedId: string;
+};
+
+export type NewChatResponse = NewChatSuccessResponse | NewChatErrorResponse;
+
+export function isNewChatSuccessResponse(response: NewChatResponse): response is NewChatSuccessResponse {
+    return Object.prototype.hasOwnProperty.call(response, 'insertedId');
+};
+
+export type ChatMessage = {
+    type: 'message';
+    _id: string;
+    message: {
+        message: string;
+        chat_id: string
+    };
 }

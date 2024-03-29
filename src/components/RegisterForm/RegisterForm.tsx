@@ -1,6 +1,6 @@
 import React, { ChangeEvent, FC, FormEvent, useState } from 'react';
 import { Button, Input, Spin, message } from 'antd';
-import Title from 'antd/es/typography/Title';
+import Title from 'antd/lib/typography/Title';
 
 import { RegisterResponse, isRegisterExistsResponse, isRegisterSuccessResponse } from '../../types/api';
 import { cnRegisterForm } from './RegisterForm.classname';
@@ -21,6 +21,7 @@ const RegisterForm: FC<RegisterFormProps> = ({ onStartLoading, onFinishLoading, 
 
 
   const handleSubmit = () => {
+    console.log('HANDLESUBMIT');
     setLoading(true);
     onStartLoading?.();
 
@@ -70,14 +71,15 @@ const RegisterForm: FC<RegisterFormProps> = ({ onStartLoading, onFinishLoading, 
       {loading ? <Spin /> : <>
         <div>
           <Title level={5}>Логин</Title>
-          <Input value={login} onChange={handleLoginChange} />
+          <Input value={login} onChange={handleLoginChange} placeholder="dusty" />
         </div>
         <div>
           <Title level={5}>Пароль</Title>
-          <Input value={password} onChange={handlePasswordChange} type="password" />
+          <Input value={password} onChange={handlePasswordChange} type="password" placeholder="123" />
         </div>
         <Button
           type="primary"
+          className={cnRegisterForm('Button')}
           disabled={login.length === 0 || password.length === 0}
           onClick={handleSubmit}
         >
